@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Sidebar 02</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<div class="wrapper d-flex align-items-stretch">
+		<nav id="sidebar">
+			<div class="custom-menu">
+				<button type="button" id="sidebarCollapse" class="btn btn-primary">
+					<i class="fa fa-bars"></i>
+					<span class="sr-only">Toggle Menu</span>
+				</button>
+			</div>
+
+			<div class="sidebar-header">
+
+				<div class="img-efeito user-pic">
+					<img class="img-responsive img-rounded" src="~/Gerenciador/Account/GetFotoUsuario/?id=@UserManager.GetUserId(User)">
+				</div>
+				<div class="user-info">
+					<span style="color: #e9e9e9;text-align:center !important ">
+						<b>@UserManager.GetUserName(User)</b>
+					</span>
+					<span style="color: lightgray; float: right !important; " class="user-role">
+						<!-- Administrador
+						@* @{
+								var clamview = new string[] { "publico", "agenciavirtual" };
+							}
+
+							@{
+								var funcoes = await UserManager.GetClaimsAsync(@User).Result;
+							}
+
+							@foreach (var clams in  UserManager..Where(c => c.Type.Equals("SAAEAGENCIAVIRTUAL") && !clamview.Contains(c.Value)))
+							{
+								@Html.DisplayFor(t=>clams.Value) <br />
+							}
+						*@ -->
+					</span>
+				</div>
+			</div>
+
+			<div class="p-4 pt-5">
+				<h1><a href="index.html" class="logo">Admin</a></h1>
+				<ul class="list-unstyled components mb-5">
+					<span>@Html.ActionLink("Dashboard", "index", "Home", new { Area = "Gerenciador" }, new { @class = "nav-link" })</span>
+					
+					<li class="active">
+						<a href="#midias" data-toggle="collapse" aria-expanded="false"
+							class="dropdown-toggle">Mídias</a>
+						<ul class="collapse list-unstyled" id="midias">
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador de Album", "menu", "Album", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador de Imagens", "menu", "Galerias", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+						</ul>
+					</li>
+					
+					<li>
+						<a href="#noticias" data-toggle="collapse" aria-expanded="false"
+							class="dropdown-toggle">Notícias</a>
+						<ul class="collapse list-unstyled" id="noticias">
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador de Noticia", "menu", "Noticias", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador de Categorias", "menu", "Categorias", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+						</ul>
+					</li>
+					
+					<li>
+						<a href="#licitacao" data-toggle="collapse" aria-expanded="false"
+							class="dropdown-toggle">Licitações</a>
+						<ul class="collapse list-unstyled" id="licitacao">
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador de Licitação", "menu", "Licitacoes", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador de Modalidade", "menu", "ModalidadeLicitacao", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador de Etapas", "menu", "EtapaLicitacao", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador de Status", "menu", "StatusLicitacao", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+						</ul>
+					</li>
+			
+					<li>
+						<a href="#legislacao" data-toggle="collapse" aria-expanded="false"
+							class="dropdown-toggle">Legislação</a>
+						<ul class="collapse list-unstyled" id="legislacao">
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador de Legislações", "menu", "Legislacoes", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+						</ul>
+					</li>
+					
+					<li>
+						<a href="#abastecimento" data-toggle="collapse" aria-expanded="false"
+							class="dropdown-toggle">Abastecimento</a>
+						<ul class="collapse list-unstyled" id="abastecimento">
+							<li class="nav-item">
+								@Html.ActionLink("Gerenciador Sistema de abastecimento", "menu", "ParadaAbastecimento", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="#usuarios" data-toggle="collapse" aria-expanded="false"
+							class="dropdown-toggle">Usuários</a>
+						<ul class="collapse list-unstyled" id="usuarios">
+							<li class="nav-item">
+								@Html.ActionLink("Usuários", "menu", "Account", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+							<li class="nav-item">
+								@Html.ActionLink("Auditoria", "Index", "Auditorias", new { Area = "Gerenciador" }, new { @class = "nav-link" })
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<div class="sidebar-footer">
+                    <a href="~/Gerenciador">
+                        <i style="font-size: 1.1rem; color: dodgerblue" class="fa fa-home"></i>
+                    </a>
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="btn btn-link">
+                            <i style="font-size: 1.1rem; color: crimson !important;" class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </form>
+
+                    <a style="color: white; font-size: 12px;">
+                        Versão @AppVersionService.Version
+                    </a>
+
+                </div>
+
+			</div>
+		</nav>
+
+		<!-- Page Content  -->
+		<div id="content" class="p-4 p-md-5 pt-5">
+
+			<div id="cresceVei" class="container-fluid">
+				<main role="main" class="menuGeral">
+					@RenderBody()
+				</main>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
